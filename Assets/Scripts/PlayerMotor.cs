@@ -42,7 +42,6 @@ public class PlayerMotor : MonoBehaviour
             touchStartY = Input.mousePosition.y;
         }
         float dx = 0f;
-        float dy = 0f;
         if (Input.GetMouseButtonUp(0))
         {
             bool isMovingX = false;
@@ -117,6 +116,11 @@ public class PlayerMotor : MonoBehaviour
 
     public void Jump()
     {
+        if (isJumping)
+        {
+            return;
+        }
+
         isJumping = true;
         GameObject go = GetPlayerAvatar();
         Animator animator = go.GetComponent<Animator>();

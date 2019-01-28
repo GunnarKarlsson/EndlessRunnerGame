@@ -6,16 +6,21 @@ public class PowerupController : MonoBehaviour
 {
     public GameObject armourPowerupPrefab;
     public GameObject magnetPowerupPrefab;
+    public GameObject player;
+    private readonly float minTime = 5;
+    private readonly float maxTime = 10;
 
-    // Start is called before the first frame update
     void Start()
     {
-        
+        StartCoroutine(SpawnPowerup());
     }
 
-    // Update is called once per frame
-    void Update()
+    private IEnumerator SpawnPowerup()
     {
-        
+        Vector3 position = player.gameObject.transform.position + new Vector3(0.5f, 0f, 30f);
+        position.y = 0f;
+        yield return new WaitForSeconds(Random.Range(minTime, maxTime));
+        GameObject enemy = Instantiate(armourPowerupPrefab, position, player.gameObject.transform.rotation);
+        StartCoroutine(SpawnPowerup());
     }
 }

@@ -6,7 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class PlayerMotor : MonoBehaviour
 {
+    public GameObject wallet;
+    public Text coinText;
     public Text scoreText;
+    private int coinCount;
     private CharacterController characterController;
     private readonly float speed = 5.0f;
     private readonly float gravity = 12.0f;
@@ -99,6 +102,12 @@ public class PlayerMotor : MonoBehaviour
     {
         dead = true;
         StartCoroutine(DoDeath());
+    }
+
+    public void Earn(int amount)
+    {
+        coinCount += amount;
+        coinText.text = "Coins: " + coinCount;
     }
 
     private IEnumerator DoDeath()

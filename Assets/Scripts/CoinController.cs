@@ -4,20 +4,22 @@ using UnityEngine;
 
 public class CoinController : MonoBehaviour
 {
-    public float speed = 10f;
-    public GameObject wallet;
-    private WalletController walletController;
+    public float speed = 100f;
 
-
-    // Start is called before the first frame update
-    void Start()
+    void OnCollisionEnter(Collision collision)
     {
-        
+        if (collision.gameObject.name == "Player")
+        {
+            collision.gameObject.GetComponent<PlayerMotor>().Die();
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter(Collider other)
     {
-        transform.Rotate(Vector3.up, speed * Time.deltaTime);
+        if (other.gameObject.name == "Player")
+        {
+            other.gameObject.GetComponent<PlayerMotor>().Earn(1);
+            Destroy(gameObject);
+        }
     }
 }

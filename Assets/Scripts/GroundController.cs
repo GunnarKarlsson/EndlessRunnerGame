@@ -22,7 +22,7 @@ public class GroundController : MonoBehaviour
 
     void Update()
     {
-        if (playerTransform.position.z > (spawnZ - (prefabLength * 4)))
+        if (playerTransform.position.z > (spawnZ - (prefabLength * 5)))
         {
             AddNewGround(Random.Range(0,3));
             RemoveOldestGround();

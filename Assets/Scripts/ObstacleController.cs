@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.SceneManagement;
+﻿using UnityEngine;
 
 public class ObstacleController : MonoBehaviour
 {
@@ -9,7 +6,7 @@ public class ObstacleController : MonoBehaviour
     {
         if (collision.gameObject.name == "Player")
         {
-            SceneManager.LoadScene("MainMenuScene");
+            collision.gameObject.GetComponent<PlayerMotor>().Die();
         }
     }
 
@@ -17,7 +14,7 @@ public class ObstacleController : MonoBehaviour
     {
         if (other.gameObject.name == "Player")
         {
-            SceneManager.LoadScene("MainMenuScene");
+           other.GetComponent<PlayerMotor>().Die();
         }
     }
 }

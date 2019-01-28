@@ -17,6 +17,7 @@ public class PlayerMotor : MonoBehaviour
     private int score = 0;
     private int scoreToNextLevel = 10;
     private float touchStart = 0f;
+    private bool dead = false;
 
     void Start()
     {
@@ -25,6 +26,10 @@ public class PlayerMotor : MonoBehaviour
 
     void Update()
     {
+        if (dead)
+        {
+            return;
+        }
 
         if (Input.GetMouseButtonDown(0))
         {
@@ -79,6 +84,7 @@ public class PlayerMotor : MonoBehaviour
         if (characterController.gameObject.transform.position.y < -30)
         {
             SceneManager.LoadScene("MainMenuScene");
+            dead = true;
         }
     }
 
@@ -86,5 +92,34 @@ public class PlayerMotor : MonoBehaviour
     {
         speedMultiplier *= 1.5f;
         scoreToNextLevel = scoreToNextLevel * 2 + score;
+    }
+
+    public void Die()
+    {
+        dead = true;
+        StartCoroutine(DoDeath());
+    }
+
+    private IEnumerator DoDeath()
+    {
+        GameObject go = GetPlayerAvatar();
+        Animator animator = go.GetComponent<Animator>();
+        animator.Play("FreeVoxelGirl-death");
+        yield return new WaitForSeconds(3);
+        SceneManager.LoadScene("MainMenuScene");
+        yield return null;
+    }
+
+    private GameObject GetPlayerAvatar()
+    {
+        Transform t = gameObject.transform;
+        for (int i = 0; i < t.childCount; i++)
+        {
+            if (t.GetChild(i).gameObject.tag == "PlayerAvatar")
+            {
+                return t.GetChild(i).gameObject;
+            }
+        }
+        return null;
     }
 }

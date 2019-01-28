@@ -21,6 +21,7 @@ public class PlayerMotor : MonoBehaviour
 
     void Start()
     {
+        scoreText.text = "Distance: 0";
         characterController = GetComponent<CharacterController>();
     }
 
@@ -72,7 +73,7 @@ public class PlayerMotor : MonoBehaviour
         moveVector.z = speed * speedMultiplier;
 
         score = (int)transform.position.z;
-        scoreText.text = score.ToString();
+        scoreText.text = "Distance: " + score.ToString();
 
         characterController.Move(moveVector * Time.deltaTime);
 

@@ -17,7 +17,7 @@ public class PowerupController : MonoBehaviour
 
     private IEnumerator SpawnPowerup()
     {
-        Vector3 position = player.gameObject.transform.position + new Vector3(0.5f, 0f, 30f);
+        Vector3 position = player.gameObject.transform.position + new Vector3(0.5f, 0f, 100f);
         position.y = 0f;
         yield return new WaitForSeconds(Random.Range(minTime, maxTime));
         GameObject enemy = Instantiate(armourPowerupPrefab, position, player.gameObject.transform.rotation);

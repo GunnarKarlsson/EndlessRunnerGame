@@ -4,8 +4,10 @@ Endless Runner Game for Mobile.
 
 ## Gameplay
 
-On Mobile, Swipe Left / Right to move sideways. Swipe up to jump
+On Mobile, Swipe Left / Right to move sideways. Swipe up to jump.
+
 In Unity editor, swipe Left, Right, Up with Left mouse button pressed.
+
 Avoid obstacles and flying crates.
 
 ## Other

@@ -1,6 +1,6 @@
 # EndlessRunner
 
-Endless Runner Game for Mobile.
+Endless Runner Game for Mobile, written in C#/Unity.
 
 ![Screen shots](https://github.com/GunnarKarlsson/EndlessRunner/raw/master/Screenshots/ss1.png)
 
@@ -15,4 +15,8 @@ Avoid obstacles and flying crates.
 ## Other
 Tested on Samsung S8+ running Android 7.
 
-Rigged mesh used for player model is from "Free Voxel Girl" asset: https://assetstore.unity.com/packages/3d/characters/humanoids/free-voxel-girl-95532
+## License
+
+This project is licensed under the [MIT License](LICENSE), except for the main character model.
+
+The rigged mesh used for the player is from the [Free Voxel Girl](https://assetstore.unity.com/packages/3d/characters/humanoids/free-voxel-girl-95532) Unity Asset Store package and remains under that asset's license. It is not covered by the MIT License.
